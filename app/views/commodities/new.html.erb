@@ -1,0 +1,15 @@
+<h1>登録画面</h1>
+   <table>
+      <tr>
+        <th>登録名</th>
+        <th>次回交換予定日</br>何日後</th>
+        <th>登録</th>
+    　</tr>
+      <%= form_for @commodity do |f| %>
+    　<tr>
+    　   <td><%= f.text_field :registration_name , class: "toroku-input" %></td>
+    　   <td><%= f.text_field :change_interval , class: "interval-input" %></td>
+    　   <td><%= f.submit '登録' %></td>
+    　</tr>
+    　<% end %>
+   </table>
