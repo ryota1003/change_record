@@ -1,12 +1,17 @@
 <h1>登録一覧画面</h1>
 <table>
-  <tr>
-    <th>登録名</th>
-    <th>交換日</th>
-    <th>次回交換日</th>
-    <th>編集</th>
-    <th>削除</th>
-  </tr>
+  <!--<tr>-->
+  <!--  <th>登録名</th>-->
+  <!--  <th>交換日</th>-->
+  <!--  <th>次回交換日</th>-->
+  <!--  <th>編集</th>-->
+  <!--  <th>削除</th>-->
+  <!--</tr>-->
   <% @commodities.each do |commodity| %>
+   <%= commodity.registration_name %>
+  <!--<tr>-->
+  <!--  <td></td>-->
+  <!--  <td></td>-->
+  <!--</tr>-->
   <% end %>
 </table>
