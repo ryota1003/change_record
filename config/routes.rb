@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   
   get 'commodities/new'
   
+  delete 'commodities/:id', to: 'commodities#destroy'
+  
   resources :users
   resources :commodities
   

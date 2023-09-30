@@ -13,7 +13,7 @@ class CommoditiesController < ApplicationController
      @commodity = Commodity.new(commodity_params)
 
     if @commodity.save!
-      redirect_to commodities_path, success: '登録に成功しました'
+      redirect_to commodities_show_path, success: '登録に成功しました'
     else
       flash.now[:danger] = "登録に失敗しました"
       render :new
@@ -23,6 +23,30 @@ class CommoditiesController < ApplicationController
   #登録一覧画面
   def show
     @commodities = Commodity.all
+  end
+  
+  def destroy
+    @commodity = Commodity.find(params[:id])
+    if @commodity.destroy
+     redirect_to commodities_show_path, success: "削除に成功しました"
+    else
+      flash.now[:danger] = "削除に失敗しました"
+      render :show
+    end
+  end
+  
+  def edit
+    @commodity = Commodity.find(params[:id])
+  end
+  
+  def update
+    @commodity = Commodity.find(params[:id])
+    if @commodity.update(post_params)
+      redirect_to request.referer
+      #同じページに戻ることができる
+    else
+      render :new
+    end
   end
   
   private
