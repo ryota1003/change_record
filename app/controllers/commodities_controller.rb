@@ -28,7 +28,7 @@ class CommoditiesController < ApplicationController
   def destroy
     @commodity = Commodity.find(params[:id])
     if @commodity.destroy
-     redirect_to commodities_show_path, success: "削除に成功しました"
+     redirect_to commodities_show_path, success: "削除しました"
     else
       flash.now[:danger] = "削除に失敗しました"
       render :show

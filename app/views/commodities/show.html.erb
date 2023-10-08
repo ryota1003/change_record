@@ -1,19 +1,24 @@
-<h1>登録一覧画面</h1>
-<table>
-  <tr>
-    <th>登録名</th>
-    <th>交換日</th>
-    <th>次回交換日</th>
-    <th>編集</th>
-    <th>削除</th>
-  </tr>
-  <% @commodities.each do |commodity| %>
-  <tr>
-    <td><%= commodity.registration_name %></td>
-    <td><%= commodity.change_interval %></td>
-    <td><%= commodity.change_interval %></td>
-    <td><%= link_to "編集", "/commodities/edit/" %></td>
-    <td><%= link_to "削除", "/commodities/" + commodity.id.to_s, method: :delete %></td>
-  </tr>
-  <% end %>
-</table>
+<div class = continer>
+  <div class = inner>
+    <h1 class = title>登録一覧画面</h1>
+    <table>
+      <tr>
+        <th>登録名</th>
+        <th>交換日</th>
+        <th>次回交換日</th>
+        <th>編集</th>
+        <th>削除</th>
+      </tr>
+      <% @commodities.each do |commodity| %>
+      <tr>
+        <td><%= commodity.registration_name %></td>
+        <td><%= commodity.change_interval %></td>
+        <td><%= commodity.change_interval %></td>
+        <td><%= link_to "編集", commodities_edit_path, class: "bottn" %></td>
+        <td><%= link_to "削除", "/commodities/" + commodity.id.to_s, method: :delete, class: "bottn" %></td>
+      </tr>
+      <% end %>
+    </table>
+    <p class = linktitle><%= link_to "登録画面へ", new_commodity_path, class: "linkpage" %></p>
+  </div>
+</div>

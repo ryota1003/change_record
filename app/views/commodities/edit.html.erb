@@ -1,1 +1,7 @@
 <h1>編集画面</h1>
+
+<%= form_for(@commodity, url: commodities_path(@commodity)) do |f| %>
+<% end %>
+
+<%= form_with model: @commodity, url: commodities_path, local: true do |f| %>
+<% end %>
