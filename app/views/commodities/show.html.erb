@@ -13,10 +13,11 @@
       <tr>
         <td><%= commodity.registration_name %></td>
         <td><%= commodity.change_interval %></td>
-        <td><%= commodity.change_interval %></td>
-        <td><%= link_to "編集", commodities_edit_path({id: commodity.id}), class: "bottn" %></td>
+        <!--next_change_dayはdbにはいらない。表示するだけだから-->
+        <td><%= (Date.parse(commodity.last_changed_day) + commodity.change_interval).strftime("%m/%d") %></td>
+        <td><%= link_to "編集", commodities_edit_path(id: commodity.id), class: "bottn" %></td>
         <!--commodities_edit_pathは関数、後ろの()は引数、{}はハッシュを意味する。-->
-        <td><%= link_to "削除", commodities_edit_path({id: commodity.id}), method: :delete, class: "bottn" %></td>
+        <td><%= link_to "削除", commodity_path(id: commodity.id), method: :delete, class: "bottn" %></td>
       </tr>
       <% end %>
     </table>

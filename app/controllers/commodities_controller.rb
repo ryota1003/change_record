@@ -11,7 +11,8 @@ class CommoditiesController < ApplicationController
   #登録ボタン
   def create
      @commodity = Commodity.new(commodity_params)
-
+    # last_changed_dayをdbにつくってあげてlast_changed_day + change_interval でnext_change_dayを作ってあげる。
+     @commodity.last_changed_day = Date.today.strftime("%Y/%m/%d")
     if @commodity.save!
       redirect_to commodities_show_path, success: '登録に成功しました'
     else

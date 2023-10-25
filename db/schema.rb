@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2023_09_02_010054) do
 
   create_table "commodities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "last_changed_day"
+    t.string "last_changed_day"
     t.string "registration_name"
     t.integer "change_interval"
     t.datetime "created_at", null: false
