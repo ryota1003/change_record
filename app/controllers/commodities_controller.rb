@@ -46,7 +46,7 @@ class CommoditiesController < ApplicationController
       redirect_to request.referer
       #同じページに戻ることができる
     else
-      render :new
+      render :show
     end
   end
   

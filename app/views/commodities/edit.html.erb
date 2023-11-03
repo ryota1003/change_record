@@ -1,19 +1,21 @@
-<h1>編集画面</h1>
-
-
-<%= form_with model: @commodity, url: commodities_path, local: true do |f| %>
-    <table>
-      <tr>
-        <th><%= f.label "登録名", for: "registration_name" %></th>
-        <th>交換日</th>
-        <th>登録日</th>
-        <th>完了</th>
-      </tr>
-      <tr>
-        <td><%= f.text_field :registration_name, id: "registration_name" %></td>
-        <td><%= f.text_field :change_interval, id: "change_interval" %></td>
-        <th><%= @commodity.last_changed_day %></th>
-        <td><%= f.submit "完了", class: "bottn" %></td>
-      </tr>
-    </table>
-<% end %>
+<div class = continer>
+  <div class = inner>
+    <h1 class = title>編集画面</h1>
+      <%= form_with model: @commodity, url: commodities_path, local: true do |f| %>
+        <table>
+          <tr>
+            <th><%= f.label "登録名", for: "registration_name" %></th>
+            <th>交換日</th>
+            <th>登録日</th>
+            <th>完了</th>
+          </tr>
+          <tr>
+            <td><%= f.text_field :registration_name, id: "registration_name", class: "toroku-input" %></td>
+            <td><%= f.text_field :change_interval, id: "change_interval", class: "interval-input" %></td>
+            <th><%= @commodity.last_changed_day %></th>
+            <td><%= f.submit "完了", class: "bottn" %></td>
+          </tr>
+        </table>
+      <% end %>
+  </div>
+</div>
