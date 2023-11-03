@@ -1,7 +1,26 @@
-<div class= continer>
-  <div class= inner>
-    <h1 class= title>日用品交換記録</h1>
-      <%= link_to 'Sign up', users_path, class: 'btn' %>
-      <%= link_to 'Log in', login_path, class: 'btn' %>
+<div class = continer>
+  <div class = inner>
+    <h1 class = title>登録一覧画面</h1>
+    <table>
+      <tr>
+        <th>登録名</th>
+        <th>交換日</th>
+        <th>次回交換日</th>
+        <th>編集</th>
+        <th>削除</th>
+      </tr>
+      <% @commodities.each do |commodity| %>
+      <tr>
+        <td><%= commodity.registration_name %></td>
+        <td><%= commodity.change_interval %></td>
+        <!--next_change_dayはdbにはいらない。表示するだけだから-->
+        <td><%= (Date.parse(commodity.last_changed_day) + commodity.change_interval).strftime("%m/%d") %></td>
+        <td><%= link_to "編集", edit_commodity_path(id: commodity.id), class: "bottn" %></td>
+        <!--commodities_edit_pathは関数、後ろの()は引数、{}はハッシュを意味する。-->
+        <td><%= link_to "削除", commodity_path(id: commodity.id), method: :delete, class: "bottn" %></td>
+      </tr>
+      <% end %>
+    </table>
+    <p class = linktitle><%= link_to "登録画面へ", new_commodity_path, class: "linkpage" %></p>
   </div>
 </div>
